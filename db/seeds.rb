@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Product.find_by_or_create_by| (name: "Nike T-Shirt") do |p|
+	p.description = "Men's T-Shirt in red"
+	p.price = "15.00"
+end
