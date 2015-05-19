@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Alerts" do
+RSpec.feature "Alerts" do
 	scenario "should be dismissable", js: true do
 		visit '/products/new'
 

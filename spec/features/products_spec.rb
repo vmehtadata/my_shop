@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Products" do 
+RSpec.feature "Products" do 
 
 	scenario "Viewing products" do
 		product = FactoryGirl.create(:product, name: 'Nike T-shirt')

@@ -1,17 +1,2 @@
-<% if flash.key?(:notice) %>
-		<div class="alert alert-success alert-dismissible" role="alert">
-			<button type="button" title="Close" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-			<%= flash[:notice] %>
-		</div>
-	<% end %>
-
-<% if flash.key?(:alert) %>
-		<div class="alert alert-danger alert-dismissible" role="alert">
-			<button type="button" title="Close" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-			<%= flash[:alert] %>
-		</div>
-	<% end %>
+<%= bootstrap_alert_tag(flash[:notice], style: 'success') if flash.key?(:notice) %>
+<%= bootstrap_alert_tag(flash[:alert], style: 'danger') if flash.key?(:alert) %>
