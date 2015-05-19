@@ -1,3 +1,4 @@
+
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product, notice: 'Product was successfully created.'
     else
+      flash.now[:alert] = 'Failed to create product - please check for errors.'
       render :new
     end
   end
@@ -35,6 +37,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product, notice: 'Product was successfully updated.'
     else
+      flash.now[:alert] = 'Failed to update product - please check for errors.'
       render :edit
     end
   end
