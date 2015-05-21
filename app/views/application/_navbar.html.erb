@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+  <%= navbar do |b| %>
+    <%= b.brand_tag 'My Shop', root_path %>
+    <%= b.navbar_tag do %>
+      <%= b.navbar_item_tag 'Products', products_path %>
+    <% end %>
+    <% unless signed_in?(:user) %>
+      <%= b.navbar_tag class: 'pull-right' do %>
+        <%= b.navbar_item_tag 'Sign In', new_user_session_path %>
+      <% end %>
+    <% end %>
+    <% if signed_in?(:user) %>
+      <%= b.navbar_tag class: 'pull-right' do %>
+        <%= b.navbar_item_tag 'Sign Out', destroy_user_session_path, method: :delete %>
+      <% end %>
+    <% end %>
+  <% end %>
+</nav>
