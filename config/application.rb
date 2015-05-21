@@ -31,5 +31,9 @@ module MyShop
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-  end
+
+    config.action_view.field_error_proc = proc do |html_tag, instance_tag| 
+        "<span class=\"field_with_errors\">#{html_tag}</span>".html_safe
+    end
+end
 end
